@@ -1,0 +1,15 @@
+import tweepy
+
+api_key ='DtM98y2yWrYWNpHs69qnhXevq'
+api_key_secret = 'pCoxGWCRc51CqY0Mvh2i0Z7UkfJ7R1kQDnR6xk0vUWX5UamMP4'
+access_token ='1401575747022512129-SqLXy7Jg7GFkhI0Jh6nnhd46o2w0N1'
+access_token_secret ='lJS6MvXrYdKZPJ4Pz9MnbXTAX5KZWZt8j4u5RGmW3ylcE'
+
+authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
+authenticator.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(authenticator, wait_on_rate_limit=True)
+
+user = api.get_user("MUHAMMEDASHIQN4")
+
+tweets_user = api.user_timeline(user_id=user.id )
